@@ -8,7 +8,7 @@ import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 /// @title FundMeTest
 /// @author Foundry Fund Me
 /// @notice Test contract for FundMe functionality
-contract FundMeTest is Test{
+contract FundMeTest is Test {
     FundMe fundMe;
 
     address USER = makeAddr("user");
@@ -25,14 +25,14 @@ contract FundMeTest is Test{
     }
 
     function testMinimumDollerIsFive() public {
-       assertEq(fundMe.MINIMUM_USD(), 5e18);
+        assertEq(fundMe.MINIMUM_USD(), 5e18);
     }
 
     function testOwnerIsMsgSender() public {
         assertEq(fundMe.getOwner(), msg.sender);
     }
 
-    function testPriceFeedVersionIsAccurate() public { 
+    function testPriceFeedVersionIsAccurate() public {
         uint256 version = fundMe.getVersion();
         assertEq(version, 4);
     }
@@ -63,7 +63,7 @@ contract FundMeTest is Test{
         _;
     }
 
-    function testOnlyOwnerCanWithdraw() public funded() {
+    function testOnlyOwnerCanWithdraw() public funded {
         vm.prank(USER);
         vm.expectRevert();
         fundMe.withdraw();
