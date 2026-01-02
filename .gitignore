@@ -14,3 +14,12 @@ docs/
 .env
 
 zkout/
+
+broadcast/
+.gitmodules/
+
+.DS_Store
+
+.keystore
+
+docs/
